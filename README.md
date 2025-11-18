@@ -25,29 +25,29 @@ Fallback: I don't know based on the provided documents. for OOS queries
 
 
 3 — Architecture
-+-------------------+         +------------------+         +---------------------------+
-|     Documents     |  --->   |   Preprocessor   |  --->   | Embeddings + FAISS Index |
-| (resume, jobdesc, |         |   (chunking)     |         |  (sentence-transformers)  |
-|   tips)           |         +------------------+         +------------+--------------+
+         
+    Documents       --->      Preprocessor    --->    Embeddings + FAISS Index 
+ (resume, jobdesc,             (chunking)             (sentence-transformers)  
+   tips)                          
                                                                      |
                                                                      v
-                                                            +--------------------+
-                                                            |   Retriever        |
-                                                            |   (FAISS top-k)    |
-                                                            +---------+----------+
+                                                            
+                                                               Retriever        
+                                                              (FAISS top-k)    
+                                                           
                                                                       |
                                                                       v
-                                                         +--------------------------+
-                                                         |  LLM (HF Inference or   |
-                                                         |  local GGUF model)      |
-                                                         +------------+-------------+
+                                                         
+                                                           LLM (HF Inference or   
+                                                            local GGUF model)      
+                                                        
                                                                       |
                                                                       v
-                                                           +----------------------+
-                                                           |   Frontend (UI)      |
-                                                           |  Streamlit Chat UI   |
-                                                           |  Modes + Provenance  |
-                                                           +----------------------+
+                                                          
+                                                             Frontend (UI)      
+                                                            Streamlit Chat UI   
+                                                            Modes + Provenance  
+                                                           
 4 — Design & Approach (Short)
 
 Ingest: Place resume.txt, jobdesc.txt, tips.txt in docs/.
