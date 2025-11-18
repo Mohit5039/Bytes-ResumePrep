@@ -19,7 +19,7 @@ Resume vs Job-Description matching (matches & gaps)
 
 Resume bullet rewriting for target role
 
-Provenance: shows which document/chunk produced the answer
+Provenance(optional): shows which document/chunk produced the answer
 
 Fallback: I don't know based on the provided documents. for OOS queries
 
@@ -74,7 +74,7 @@ LLM options:
 
 Hugging Face Inference API (simple, no local model install)
 
-llama-cpp-python (local GGUF model if offline)
+llama-cpp-python (local GGUF model if offline) -> (backup)
 
 Frontend
 
