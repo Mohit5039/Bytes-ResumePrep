@@ -26,27 +26,24 @@ Fallback: I don't know based on the provided documents. for OOS queries
 
 3 — Architecture
          
-    Documents       --->      Preprocessor    --->    Embeddings + FAISS Index 
- (resume, jobdesc,             (chunking)             (sentence-transformers)  
-   tips)                          
-                                                                     |
-                                                                     v
+    Documents       --->      Preprocessor    --->    Embeddings + FAISS Index  ---> Retriever   --->    LLM (HF Inference or  --->  Frontend (UI)      
+ (resume, jobdesc,       (chunking)                  (sentence-transformers)  
+  tips)                                                                             (FAISS top-k)         local GGUF model)           Streamlit Chat UI   
+                                                                                                                                      Modes + Provenance          
+                                                                                                           
+                                                                                   
+                      
+                            
+                                                                  
                                                             
-                                                               Retriever        
-                                                              (FAISS top-k)    
+                                                               
                                                            
-                                                                      |
-                                                                      v
+
                                                          
-                                                           LLM (HF Inference or   
-                                                            local GGUF model)      
-                                                        
-                                                                      |
-                                                                      v
                                                           
-                                                             Frontend (UI)      
-                                                            Streamlit Chat UI   
-                                                            Modes + Provenance  
+                                                                   
+                                                          
+                                                            
                                                            
 4 — Design & Approach (Short)
 
